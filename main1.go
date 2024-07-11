@@ -95,7 +95,6 @@ func calculate(example string) string {
 		return arabToRom(count(firstNum, sacondNum, operator))
 	}
 	if err1 != nil || err2 != nil {
-
 		panic(fmt.Sprint("Калькулятор работает только с числами одного типа"))
 	}
 
