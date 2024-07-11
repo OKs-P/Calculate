@@ -81,7 +81,7 @@ func calculate(example string) string {
 	sacondNum, err2 := strconv.Atoi(strings.TrimSpace(strNum[1]))
 	if err1 == nil && err2 == nil {
 		if firstNum > 10 || sacondNum > 10 {
-			panic(fmt.Sprint("Калькулятор работает только с числами до 10"))
+			panic(fmt.Sprint("ыдача паники, некорректное число."))
 		}
 		return strconv.Itoa(count(firstNum, sacondNum, operator))
 
@@ -90,12 +90,12 @@ func calculate(example string) string {
 		firstNum = romToInt(strings.TrimSpace(strNum[0]))
 		sacondNum = romToInt(strings.TrimSpace(strNum[1]))
 		if firstNum > 10 || sacondNum > 10 {
-			panic(fmt.Sprint("Калькулятор работает только с числами до X"))
+			panic(fmt.Sprint("Выдача паники, некорректное число."))
 		}
 		return arabToRom(count(firstNum, sacondNum, operator))
 	}
 	if err1 != nil || err2 != nil {
-		panic(fmt.Sprint("Калькулятор работает только с числами одного типа"))
+		panic(fmt.Sprint("Выдача паники, так как используются одновременно разные системы счисления."))
 	}
 
 	panic(fmt.Sprint("Некоректное выражение"))
@@ -130,7 +130,7 @@ func count(firstNum, sacondNum int, operator string) int {
 }
 func arabToRom(num int) string {
 	if num < 1 {
-		panic("меньше 0")
+		panic("Выдача паники, так как в римской системе нет отрицательных чисел.")
 	}
 	var res string = ""
 	var n int = num
