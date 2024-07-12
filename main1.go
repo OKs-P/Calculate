@@ -80,9 +80,14 @@ func calculate(example string) string {
 	firstNum, err1 := strconv.Atoi(strings.TrimSpace(strNum[0]))
 	sacondNum, err2 := strconv.Atoi(strings.TrimSpace(strNum[1]))
 	if err1 == nil && err2 == nil {
-		if firstNum > 10 || sacondNum > 10 {
-			panic(fmt.Sprint("ыдача паники, некорректное число."))
+		if firstNum <= 0 || sacondNum <= 0 {
+			panic(fmt.Sprint("Выдача паники, некорректное число."))
 		}
+		if firstNum > 10 || sacondNum > 10 {
+			panic(fmt.Sprint("Выдача паники, некорректное число."))
+
+		}
+
 		return strconv.Itoa(count(firstNum, sacondNum, operator))
 
 	}
